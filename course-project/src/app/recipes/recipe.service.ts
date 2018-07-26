@@ -4,7 +4,6 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from '../../../node_modules/rxjs';
-import { tick } from '../../../node_modules/@angular/core/testing';
 
 @Injectable()
 export class RecipeService {
@@ -54,6 +53,11 @@ export class RecipeService {
 
   deleteRecipe(index: number) {
     this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateAllRecipes(newRecipes: Recipe[]) {
+    this.recipes = newRecipes;
     this.recipesChanged.next(this.recipes.slice());
   }
 }
