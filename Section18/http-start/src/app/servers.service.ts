@@ -5,6 +5,7 @@ import { throwError } from 'rxjs';
 
 @Injectable()
 export class ServersService {
+    private apiKey = 'YOUR_API_KEY';
     constructor(private http: Http) {}
 
     storeServers(servers: any[]) {
@@ -12,16 +13,16 @@ export class ServersService {
         // return this.http.post('https://angularcoursehttp-63af0.firebaseio.com/data.json', servers, {headers: headers});
 
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('https://angularcoursehttp-63af0.firebaseio.com/data.json', servers, {headers: headers});
+        return this.http.put(this.apiKey, servers, {headers: headers});
     // post - append to any existing element
     // post often used to store data
     // as long as we don't subscribe, no request gets sent
     // data.json just prevents a cors error in Firebase - this is firebase specific
-    // on Firebase, this will overrite the existing data
+    // on Firebase, this will override the existing data
     }
 
     getServers() {
-        return this.http.get('https://angularcoursehttp-63af0.firebaseio.com/data')
+        return this.http.get(this.apiKey)
         .pipe(map(
             (response: Response) => {
                 const data = response.json();

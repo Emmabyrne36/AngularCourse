@@ -7,17 +7,18 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class ServerService {
+    private apiKey = 'INPUT_YOUR_API_KEY';
     constructor(private http: Http, private recipeService: RecipeService, private authService: AuthService) {}
 
     storeRecipes() {
         const token = this.authService.getToken();
-        return this.http.put('https://angularcourse-recipebook.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+        return this.http.put(this.apiKey + token, this.recipeService.getRecipes());
     }
 
     getRecipes() {
         const token = this.authService.getToken();
 
-        return this.http.get('https://angularcourse-recipebook.firebaseio.com/recipes.json?auth=' + token)
+        return this.http.get(this.apiKey + token)
             .pipe(map(
                 (response: Response) => {
                     const fetchedRecipes = response.json();
