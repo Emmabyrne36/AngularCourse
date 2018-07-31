@@ -5,7 +5,7 @@ import { throwError } from 'rxjs';
 
 @Injectable()
 export class ServersService {
-    private apiKey = 'YOUR_API_KEY';
+    private apiKey = 'https://angularcoursehttp-63af0.firebaseio.com/data';
     constructor(private http: Http) {}
 
     storeServers(servers: any[]) {

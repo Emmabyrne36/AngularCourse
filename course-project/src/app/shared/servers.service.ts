@@ -7,7 +7,7 @@ import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class ServerService {
-    private apiKey = 'INPUT_YOUR_API_KEY';
+    private apiKey = 'https://angularcourse-recipebook.firebaseio.com/recipes.json?auth=';
     constructor(private http: Http, private recipeService: RecipeService, private authService: AuthService) {}
 
     storeRecipes() {
