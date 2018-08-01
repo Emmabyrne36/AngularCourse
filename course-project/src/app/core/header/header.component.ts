@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ServerService } from '../shared/servers.service';
-import { AuthService } from '../auth/auth.service';
+import { ServerService } from '../../shared/servers.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -29,5 +29,9 @@ export class HeaderComponent {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 }
