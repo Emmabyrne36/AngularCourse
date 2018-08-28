@@ -6,7 +6,7 @@ import { HomeComponent } from './core/home/home.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
+  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'}, // this is lazily loaded
   { path: 'shopping-list', component: ShoppingListComponent }
 ];
 

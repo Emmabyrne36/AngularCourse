@@ -21,7 +21,7 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
             };
         case (AuthActions.LOGOUT):
             return {
-                ...state, // spread operator which will return the old state
+                ...state,
                 token: null,
                 authenticated: false
             };
@@ -34,3 +34,5 @@ export function authReducer(state = initialState, action: AuthActions.AuthAction
             return state;
     }
 }
+
+// ... -> // spread operator which will return the old state

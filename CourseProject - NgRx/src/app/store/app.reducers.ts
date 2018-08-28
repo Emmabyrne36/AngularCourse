@@ -12,4 +12,5 @@ export interface AppState {
 export const reducers: ActionReducerMap<AppState> = {
     shoppingList: fromShoppingList.shoppingListReducer, // without ()
     auth: fromAuth.authReducer
+    // here we essentially bundle up the application state from the different pieces of state from the different reducers files
 };
